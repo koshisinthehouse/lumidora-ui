@@ -5,6 +5,8 @@ const path = require('path');
 let mainWindow;
 
 let view;
+let view2;
+let views = [];
 
 function createWindow() {
     // Erstelle das Hauptfenster
@@ -33,9 +35,24 @@ function createWindow() {
         }
     });
 
-    mainWindow.setBrowserView(view)
-    view.setBounds({x: 500, y: 0, width: 500, height: 500})
-    view.webContents.loadURL('https://electronjs.org')
+    //mainWindow.setBrowserView(view)
+    view.setBounds({x: 200, y: 0, width: width-200, height: height})
+    view.webContents.loadURL('http://localhost:8080/')
+
+    views.one = view;
+
+    view2 = new BrowserView({
+        webPreferences: {
+            //preload: path.join(__dirname, 'preload.js')
+        }
+    });
+
+    //mainWindow.setBrowserView(view2)
+    view2.setBounds({x: 200, y: 0, width: width-200, height: height})
+    view2.webContents.loadURL('http://localhost:7860/?__theme=dark')
+
+    views.two = view2
+
 
 
     // Lade eine Internetseite (z.B. google.de) im Hauptfenster
@@ -46,10 +63,12 @@ function createWindow() {
         console.log('Link clicked in main process!');
         switch (dataReceived.module) {
             case "lumidora-tts":
-                view.webContents.loadURL('http://localhost:8080/'); // Replace with the desired URL
+                //view.webContents.loadURL('http://localhost:8080/'); // Replace with the desired URL
+                mainWindow.setBrowserView(views.one)
                 break;
             case "lumidora-sd-webui":
-                view.webContents.loadURL('http://localhost:7860/?__theme=dark'); // Replace with the desired URL
+                //view.webContents.loadURL('http://localhost:7860/?__theme=dark'); // Replace with the desired URL
+                mainWindow.setBrowserView(views.two)
                 break;
         }
     });
