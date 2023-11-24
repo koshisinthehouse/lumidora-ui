@@ -1,0 +1,26 @@
+{
+  "name": "Lumidora Frontend",
+  "version": "1.0.3",
+  "license": "MIT",
+  "keywords": [
+    ""
+  ],
+  "description": "",
+  "files": [
+  ],
+  "devDependencies": {
+    "electron": "27.0.4",
+    "electron-packager": "17.1.2"
+  },
+  "dependencies": {
+  },
+  "author": "Dominik Bruhn",
+  "scripts": {
+    "start": "electron .",
+    "preversion": "",
+    "new-patch": "npm version patch -m \"new patch version: %s\" --force",
+    "new-minor": "npm version minor -m \"new minor version: %s\" --force",
+    "new-major": "npm version major -m \"new major version: %s\" --force",
+    "postversion": ""
+  }
+}

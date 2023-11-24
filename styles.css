@@ -1,0 +1,30 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.toolbar {
+    background-color: #333; /* Hintergrundfarbe der Toolbar anpassen */
+    padding: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.icon img {
+    width: 24px; /* Breite der Icon-Bilder anpassen */
+    height: 24px; /* Höhe der Icon-Bilder anpassen */
+}
+
+.main {
+    width: 400px;
+    height: 400px;
+}
+
+/* Füge weitere Stile nach Bedarf hinzu */
